@@ -21,6 +21,8 @@
 #include "pc/configfile.h"
 #else
 #include "n64/configfile.h"
+configDive = TRUE;
+configWallslide = TRUE;
 #endif
 #endif
 

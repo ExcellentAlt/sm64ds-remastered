@@ -19,6 +19,7 @@
 #include "pc/configfile.h"
 #else
 #include "n64/configfile.h"
+configWallslide = TRUE;
 #endif
 #endif
 
