@@ -818,7 +818,7 @@ void tilt_body_walking(struct MarioState *m, s16 startYaw) {
         s16 dYaw = m->faceAngle[1] - startYaw;
         //! (Speed Crash) These casts can cause a crash if (dYaw * forwardVel / 12) or
         //! (forwardVel * 170) exceed or equal 2^31.
-        s16 val02 = -(s16)(dYaw * m->forwardVel / 12.0f);
+        /*s16 val02 = -(s16)(dYaw * m->forwardVel / 12.0f);
         s16 val00 = (s16)(m->forwardVel * 170.0f);
 
         if (val02 > 0x1555) {
@@ -836,7 +836,7 @@ void tilt_body_walking(struct MarioState *m, s16 startYaw) {
         }
 
         val0C->torsoAngle[2] = approach_s32(val0C->torsoAngle[2], val02, 0x400, 0x400);
-        val0C->torsoAngle[0] = approach_s32(val0C->torsoAngle[0], val00, 0x400, 0x400);
+        val0C->torsoAngle[0] = approach_s32(val0C->torsoAngle[0], val00, 0x400, 0x400);*/
     } else {
         val0C->torsoAngle[2] = 0;
         val0C->torsoAngle[0] = 0;
