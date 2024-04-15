@@ -466,7 +466,7 @@
 #define MODEL_MARIOS_WINGED_METAL_CAP     0x85        // marios_winged_metal_cap_geo
 #define MODEL_MARIOS_METAL_CAP            0x86        // marios_metal_cap_geo
 #define MODEL_MARIOS_WING_CAP             0x87        // marios_wing_cap_geo
-#define MODEL_MARIOS_CAP                  0x88        // marios_cap_geo
+#define MODEL_MARIOS_CAP                  0x88        // mario_cap_geo
 #define MODEL_EXCLAMATION_BOX             0x89        // exclamation_box_geo
 #define MODEL_DIRT_ANIMATION              0x8A        // dirt_animation_geo
 #define MODEL_CARTOON_STAR                0x8B        // cartoon_star_geo
