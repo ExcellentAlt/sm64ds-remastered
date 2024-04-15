@@ -234,9 +234,6 @@ static struct Option optsAudio[] = {
 
 static struct Option optsSettings[] = {
     DEF_OPT_TOGGLE( optsSettingsStr[0], &configHUD ),
-#ifdef MOUSE_ACTIONS
-    DEF_OPT_TOGGLE( optsSettingsStr[1], &configMouse ),
-#endif
 };
 
 static struct Option optsDsSettings[] = {

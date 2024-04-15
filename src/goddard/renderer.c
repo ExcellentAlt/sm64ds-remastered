@@ -2558,7 +2558,7 @@ void parse_p1_controller(void) {
     }
 
     float screenScale = (float) gfx_current_dimensions.height / (float)SCREEN_HEIGHT;
-    if (configMouse && gMouseHasFreeControl) {
+    if (gMouseHasFreeControl) {
         gdctrl->csrX = (gMouseXPos - (gfx_current_dimensions.width - (screenScale * (float)SCREEN_WIDTH))/ 2)/ screenScale;
         gdctrl->csrY = gMouseYPos / screenScale;
     }

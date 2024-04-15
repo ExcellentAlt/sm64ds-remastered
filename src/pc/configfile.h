@@ -62,9 +62,6 @@ extern bool         configPrecacheRes;
 #endif
 
 extern bool         configHUD;
-#ifdef MOUSE_ACTIONS
-extern bool         configMouse;
-#endif
 extern bool         configWallslide;
 extern bool         configDive;
 extern unsigned int configDash;

@@ -97,10 +97,6 @@ unsigned int configRumbleStrength = 50;
 bool configPrecacheRes = true;
 #endif
 
-#ifdef MOUSE_ACTIONS
-bool configMouse = false;
-#endif
-
 #ifdef DISCORDRPC
 bool configDiscordRPC = true;
 #endif
@@ -152,9 +148,6 @@ static const struct ConfigOption options[] = {
 #endif
     #ifdef EXTERNAL_DATA
     {.name = "precache",             .type = CONFIG_TYPE_BOOL, .boolValue = &configPrecacheRes},
-    #endif
-    #ifdef MOUSE_ACTIONS
-    {.name = "mouse_enable",         .type = CONFIG_TYPE_BOOL, .boolValue = &configMouse},
     #endif
     #ifdef DISCORDRPC
     {.name = "discordrpc_enable",    .type = CONFIG_TYPE_BOOL, .boolValue = &configDiscordRPC},

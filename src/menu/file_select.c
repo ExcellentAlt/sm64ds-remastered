@@ -1732,7 +1732,7 @@ void handle_controller_cursor_input(void) {
 
     static float screenScale;
     screenScale = (float) gfx_current_dimensions.height / SCREEN_HEIGHT;
-    if (gMouseHasFreeControl && configMouse) {
+    if (gMouseHasFreeControl) {
         sCursorPos[0] = ((gMouseXPos - (gfx_current_dimensions.width - (screenScale * 320)) / 2) / screenScale) - 160.0f;
         sCursorPos[1] = (gMouseYPos / screenScale - 120.0f) * -1;
     }
