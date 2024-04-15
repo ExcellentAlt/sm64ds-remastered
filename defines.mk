@@ -15,7 +15,7 @@ RUMBLE_FEEDBACK ?= 1
 # Disable no drawing distance by default
 NODRAWINGDISTANCE ?= 0
 # Enable Goddard (Mario Face)
-GODDARD_MFACE ?= 1
+GODDARD_MFACE ?= 0
 # Kaze MOP Objects Port, disabled by default
 PORT_MOP_OBJS ?= 0
 # Enable level vanilla checks
