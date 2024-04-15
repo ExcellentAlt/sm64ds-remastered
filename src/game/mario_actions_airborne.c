@@ -20,9 +20,8 @@
 #ifndef TARGET_N64
 #include "pc/configfile.h"
 #else
-#include "n64/configfile.h"
-configDive = TRUE;
-configWallslide = TRUE;
+int configDive = TRUE;
+int configWallslide = TRUE;
 #endif
 #endif
 
