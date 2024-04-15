@@ -110,6 +110,8 @@ static const u8 optsDsSettingsStr[][32] = {
     { TEXT_OPT_DS_SLIDE },
     { TEXT_OPT_DS_DASH },
     { TEXT_OPT_DS_DIVE },
+    { TEXT_OPT_DS_SWALK },
+    { TEXT_OPT_DS_SRUN },
 };
 
 #if !defined(TARGET_N64) && !defined(TARGET_PORT_CONSOLE)
@@ -145,6 +147,12 @@ static const u8 *filterChoices[] = {
     optsVideoStr[3],
 };
 #endif
+
+static const u8 *movementChoices[] = {
+    toggleStr[0],
+    optsDsSettingsStr[3],
+    optsDsSettingsStr[4],
+};
 
 /* button action functions */
 
@@ -204,7 +212,6 @@ static struct Option optsVideo[] = {
     DEF_OPT_TOGGLE( optsVideoStr[0], &configWindow.fullscreen ),
     DEF_OPT_TOGGLE( optsVideoStr[5], &configWindow.vsync ),
 #endif
-    DEF_OPT_CHOICE( optsVideoStr[1], &configFiltering, filterChoices ),
 #if !defined(TARGET_PORT_CONSOLE) && !defined(TARGET_ANDROID)
     DEF_OPT_BUTTON( optsVideoStr[4], optvideo_reset_window ),
 #endif
@@ -227,8 +234,11 @@ static struct Option optsSettings[] = {
 };
 
 static struct Option optsDsSettings[] = {
+#ifndef TARGET_N64
+    DEF_OPT_CHOICE( optsVideoStr[1], &configFiltering, filterChoices ),
+#endif
+    DEF_OPT_CHOICE( optsDsSettingsStr[1], &configDash, movementChoices ),
     DEF_OPT_TOGGLE( optsDsSettingsStr[0], &configWallslide ),
-    DEF_OPT_TOGGLE( optsDsSettingsStr[1], &configDash ),
     DEF_OPT_TOGGLE( optsDsSettingsStr[2], &configDive ),
 };
 

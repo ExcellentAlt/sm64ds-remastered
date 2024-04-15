@@ -105,7 +105,7 @@ bool configDiscordRPC = true;
 bool configSkipIntro = false;
 bool configHUD = true;
 bool configWallslide = true;
-bool configDash = false;
+unsigned int configDash = 0;
 bool configDive = true;
 
 static const struct ConfigOption options[] = {

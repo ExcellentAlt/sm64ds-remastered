@@ -77,6 +77,8 @@
 #define TEXT_OPT_DS_SLIDE  _("DS WALLSLIDE")
 #define TEXT_OPT_DS_DASH   _("DS DASH")
 #define TEXT_OPT_DS_DIVE   _("DS DIVE")
+#define TEXT_OPT_DS_SRUN   _("Y TO RUN")
+#define TEXT_OPT_DS_SWALK  _("Y TO WALK")
 
 #define TEXT_BIND_A        _("A BUTTON")
 #define TEXT_BIND_B        _("B BUTTON")
@@ -153,6 +155,8 @@
 #define TEXT_OPT_DS_SLIDE  _("DS Wallslide")
 #define TEXT_OPT_DS_DASH   _("DS Dash")
 #define TEXT_OPT_DS_DIVE   _("DS Dive")
+#define TEXT_OPT_DS_SRUN   _("Y To Run")
+#define TEXT_OPT_DS_SWALK  _("Y To Walk")
 
 #define TEXT_BIND_A        _("A Button")
 #define TEXT_BIND_B        _("B Button")
