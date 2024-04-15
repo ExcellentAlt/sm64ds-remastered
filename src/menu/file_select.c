@@ -1667,7 +1667,7 @@ void handle_cursor_button_input(void) {
         if (gPlayer3Controller->buttonPressed 
             & (B_BUTTON | START_BUTTON 
 #if QOL_FEATURE_Z_BUTTON_EXTRA_OPTION
-            | Z_TRIG
+            | ZL_TRIG | ZR_TRIG
 #endif
             )) {
             sClickPos[0] = sCursorPos[0];
@@ -1681,7 +1681,7 @@ void handle_cursor_button_input(void) {
         if (gPlayer3Controller->buttonPressed
             & (A_BUTTON | B_BUTTON | START_BUTTON 
 #if QOL_FEATURE_Z_BUTTON_EXTRA_OPTION
-            | Z_TRIG
+            | ZL_TRIG | ZR_TRIG
 #endif
             )) {
             sClickPos[0] = sCursorPos[0];
