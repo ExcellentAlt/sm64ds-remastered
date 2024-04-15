@@ -1663,6 +1663,10 @@ $(BUILD_DIR)/libgcc.a: $(LIBGCC_O_FILES)
 LIB_GCC_FILE := $(BUILD_DIR)/libgcc.a
 LIB_GCC_FLAG := -lgcc
 
+ifeq ($(GODDARD_MFACE),1)
+  GODDARD_TXT_INC := $(BUILD_DIR)/goddard.txt
+endif
+
 # Run linker script through the C preprocessor
 $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT) $(GODDARD_TXT_INC)
 	$(call print,Preprocessing linker script:,$<,$@)
@@ -1691,6 +1695,10 @@ $(BUILD_DIR)/sm64_prelim.elf: $(BUILD_DIR)/sm64_prelim.ld
 	@$(PRINT) "$(GREEN)Linking Preliminary ELF file: $(BLUE)$@ $(NO_COL)\n"
     # Slightly edited version of LDFLAGS
 	$(V)$(LD) -L $(BUILD_DIR) -T $< -Map $(BUILD_DIR)/sm64_prelim.map $(SYMBOL_LINKING_FLAGS) -o $@ $(O_FILES) -lultra $(LIB_GD_FLAG) $(LIB_GCC_FLAG)
+
+$(BUILD_DIR)/goddard.txt: $(BUILD_DIR)/sm64_prelim.elf
+	$(call print,Getting Goddard size...)
+	$(V)$(GET_GODDARD_SIZE) $(BUILD_DIR)/sm64_prelim.map $(VERSION)
 
 LIB_GD_PRE_ELF := $(BUILD_DIR)/sm64_prelim.elf
 
