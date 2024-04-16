@@ -29,6 +29,10 @@
 #include "level_table.h"
 #include "pc/configfile.h"
 
+#if defined(TARGET_N64) || defined(TARGET_PORT_CONSOLE)
+extern int configJmpSwp;
+#endif
+
 #define CBUTTON_MASK (U_CBUTTONS | D_CBUTTONS | L_CBUTTONS | R_CBUTTONS)
 
 /**

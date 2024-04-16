@@ -27,6 +27,10 @@
 #include "spawn_object.h"
 #include "spawn_sound.h"
 
+#if defined(TARGET_N64) || defined(TARGET_PORT_CONSOLE)
+extern int configJmpSwp;
+#endif
+
 static s8 sBBHStairJiggleOffsets[] = { -8, 8, -4, 4 };
 
 static s32 clear_move_flag(u32 *, s32);

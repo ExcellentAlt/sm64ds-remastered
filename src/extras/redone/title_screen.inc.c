@@ -15,6 +15,10 @@
 extern s32 gInGameLanguage;
 #endif
 
+#if defined(TARGET_N64) || defined(TARGET_PORT_CONSOLE)
+extern int configJmpSwp;
+#endif
+
 #define MAX_PAGE_STRINGS 12
 #define PAGE_DOWN_STOPS_MAX (LEVEL_MAX / MAX_PAGE_STRINGS)
 

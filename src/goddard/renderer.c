@@ -27,6 +27,10 @@
 #include "pc/configfile.h"
 #endif
 
+#if defined(TARGET_N64) || defined(TARGET_PORT_CONSOLE)
+extern int configJmpSwp;
+#endif
+
 #define MAX_GD_DLS 1000
 #define OS_MESG_SI_COMPLETE 0x33333333
 
@@ -2468,7 +2472,7 @@ void parse_p1_controller(void) {
     // button values (as bools)
     gdctrl->trgL   = (currInputs->button & L_TRIG) != 0;
     gdctrl->trgR   = (currInputs->button & R_TRIG) != 0;
-    if configBtnSwp {
+    if configJmpSwp {
         gdctrl->btnA   = (currInputs->button & B_BUTTON) != 0;
         gdctrl->btnB   = (currInputs->button & A_BUTTON) != 0;
     } else {

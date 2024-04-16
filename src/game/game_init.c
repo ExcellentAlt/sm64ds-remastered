@@ -33,6 +33,10 @@
 #include "extras/debug_menu.h"
 #endif
 
+#if defined(TARGET_N64) || defined(TARGET_PORT_CONSOLE)
+extern int configJmpSwp;
+#endif
+
 // First 3 controller slots
 struct Controller gControllers[3];
 

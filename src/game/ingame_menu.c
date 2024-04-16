@@ -36,6 +36,10 @@
 #include "extras/options_menu.h"
 #endif
 
+#if defined(TARGET_N64) || defined(TARGET_PORT_CONSOLE)
+extern int configJmpSwp;
+#endif
+
 u16 gMenuTextColorTransTimer;
 s8 gLastDialogLineNum;
 s32 gDialogVariable;

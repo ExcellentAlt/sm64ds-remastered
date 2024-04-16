@@ -38,6 +38,10 @@
 #define LANGUAGE_FUNCTION sLanguageMode
 #endif
 
+#if defined(TARGET_N64) || defined(TARGET_PORT_CONSOLE)
+extern int configJmpSwp;
+#endif
+
 /**
  * @file file_select.c
  * This file implements how the file select and it's menus render and function.

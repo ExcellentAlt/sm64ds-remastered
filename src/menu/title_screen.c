@@ -16,6 +16,10 @@
 #include "sm64.h"
 #include "title_screen.h"
 
+#if defined(TARGET_N64) || defined(TARGET_PORT_CONSOLE)
+extern int configJmpSwp;
+#endif
+
 /**
  * @file title_screen.c
  * This file implements how title screen functions.

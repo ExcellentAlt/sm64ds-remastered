@@ -18,6 +18,10 @@
 #include "extras/debug_menu.h"
 #endif
 
+#if defined(TARGET_N64) || defined(TARGET_PORT_CONSOLE)
+extern int configJmpSwp;
+#endif
+
 #define DEBUG_INFO_NOFLAGS (0 << 0)
 #define DEBUG_INFO_FLAG_DPRINT (1 << 0)
 #define DEBUG_INFO_FLAG_LSELECT (1 << 1)

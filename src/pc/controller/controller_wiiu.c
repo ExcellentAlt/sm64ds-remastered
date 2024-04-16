@@ -14,6 +14,10 @@
 #include "controller_api.h"
 #include "../configfile.h"
 
+#if defined(TARGET_N64) || defined(TARGET_PORT_CONSOLE)
+extern int configJmpSwp;
+#endif
+
 extern void KPADShutdown();
 
 struct WiiUKeymap {
@@ -33,7 +37,7 @@ struct WiiUKeymap {
 #define SE(dir) VPAD_STICK_R_EMULATION_##dir, WPAD_CLASSIC_STICK_R_EMULATION_##dir, WPAD_PRO_STICK_R_EMULATION_##dir
 
 struct WiiUKeymap map[] = {
-    if configBtnSwp {
+    if configJmpSwp {
         { B_BUTTON, VB(A), CB(A), PB(A) },
         { A_BUTTON, VB(B), CB(B), PB(B) },
     } else {
@@ -147,7 +151,7 @@ static void read_wpad(OSContPad* pad) {
         stick = status.nunchuck.stick;
         rStick = (KPADVec2D) {0.0, 0.0};
         
-        if configBtnSwp {
+        if configJmpSwp {
             if (wm & WPAD_BUTTON_A) pad->button |= B_BUTTON;
             if (wm & WPAD_BUTTON_B) pad->button |= A_BUTTON;
         } else {

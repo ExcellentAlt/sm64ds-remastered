@@ -32,6 +32,10 @@
 #include <stdbool.h>
 #include <math.h>
 
+#if defined(TARGET_N64) || defined(TARGET_PORT_CONSOLE)
+extern int configJmpSwp;
+#endif
+
 #include "controller_api.h"
 
 #define DEADZONE 4960
@@ -68,7 +72,7 @@ static void controller_3ds_read(OSContPad *pad)
         pad->button |= ZR_TRIG;
     if (kDown & KEY_L)
         pad->button |= R_TRIG;
-    if configBtnSwp {
+    if configJmpSwp {
         if (kDown & KEY_A)
         pad->button |= B_BUTTON;
         if (kDown & KEY_B)

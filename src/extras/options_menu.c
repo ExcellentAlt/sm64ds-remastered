@@ -34,6 +34,10 @@
 #include "debug_menu.h"
 #endif
 
+#if defined(TARGET_N64) || defined(TARGET_PORT_CONSOLE)
+extern int configJmpSwp;
+#endif
+
 u8 optmenu_open = 0;
 
 #if !defined(TARGET_N64) && !defined(TARGET_PORT_CONSOLE)

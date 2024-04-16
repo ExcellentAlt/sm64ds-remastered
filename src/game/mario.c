@@ -42,6 +42,10 @@
 #include "extras/debug_menu.h"
 #endif
 
+#if defined(TARGET_N64) || defined(TARGET_PORT_CONSOLE)
+extern int configJmpSwp;
+#endif
+
 u32 unused80339F10;
 u8 unused80339F1C[20];
 
