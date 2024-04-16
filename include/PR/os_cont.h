@@ -141,12 +141,12 @@ typedef struct {
 
 /* Nintendo's official button names */
 
-#define A_BUTTON	CONT_A
-#define B_BUTTON	CONT_B
-#define X_BUTTON	CONT_X
-#define Y_BUTTON	CONT_Y
+#define A_BUTTON	CONT_F
+#define B_BUTTON	CONT_D
+#define X_BUTTON	CONT_E
+#define Y_BUTTON	CONT_C
 #define L_TRIG		CONT_L
-#define R_TRIG		CONT_R
+#define R_TRIG		CONT_G
 #define ZL_TRIG		CONT_G
 #define ZR_TRIG		CONT_G
 #define START_BUTTON	CONT_START
@@ -154,10 +154,10 @@ typedef struct {
 #define L_JPAD		CONT_LEFT
 #define R_JPAD		CONT_RIGHT
 #define D_JPAD		CONT_DOWN
-#define U_CBUTTONS	CONT_E
-#define L_CBUTTONS	CONT_C
-#define R_CBUTTONS	CONT_F
-#define D_CBUTTONS	CONT_D
+#define U_CBUTTONS	CONT_X
+#define L_CBUTTONS	CONT_Y
+#define R_CBUTTONS	CONT_S
+#define D_CBUTTONS	CONT_B
 
 /* Controller error number */
 
