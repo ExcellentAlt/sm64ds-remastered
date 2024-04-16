@@ -72,7 +72,7 @@ static void controller_3ds_read(OSContPad *pad)
         pad->button |= ZR_TRIG;
     if (kDown & KEY_L)
         pad->button |= R_TRIG;
-    if configJmpSwp {
+    if (configJmpSwp) {
         if (kDown & KEY_A)
         pad->button |= B_BUTTON;
         if (kDown & KEY_B)
