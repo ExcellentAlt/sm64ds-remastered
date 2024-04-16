@@ -103,6 +103,7 @@
 #define TEXT_BIND_RIGHT    _("STICK RIGHT")
 #define TEXT_OPT_DEADZONE  _("STICK DEADZONE")
 #define TEXT_OPT_RUMBLE    _("RUMBLE STRENGTH")
+#define TEXT_OPT_SWAP      _("SWAP [A] AND [B]")
 
 #else // VERSION
 
@@ -184,6 +185,7 @@
 #define TEXT_BIND_RIGHT    _("Stick Right")
 #define TEXT_OPT_DEADZONE  _("Stick Deadzone")
 #define TEXT_OPT_RUMBLE    _("Rumble Strength")
+#define TEXT_OPT_SWAP      _("Swap [A] And [B]")
 
 #endif // VERSION
 
