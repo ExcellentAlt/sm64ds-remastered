@@ -180,8 +180,8 @@ static void optvideo_apply(UNUSED struct Option *self, s32 arg) {
 #endif
 
 /* submenu option lists */
-#if !defined(TARGET_N64) && !defined(TARGET_PORT_CONSOLE)
 static struct Option optsControls[] = {
+#if !defined(TARGET_N64) && !defined(TARGET_PORT_CONSOLE)
     DEF_OPT_BIND( optBindStr[ 2], configKeyA ),
     DEF_OPT_BIND( optBindStr[ 3], configKeyB ),
     DEF_OPT_BIND( optBindStr[ 4], configKeyX ),
@@ -209,8 +209,8 @@ static struct Option optsControls[] = {
 #ifdef RUMBLE_FEEDBACK
     DEF_OPT_SCROLL( optBindStr[21], &configRumbleStrength, 0, 100, 1),
 #endif
-};
 #endif
+};
 
 #ifndef TARGET_N64
 static struct Option optsVideo[] = {
@@ -247,9 +247,7 @@ static struct Option optsDsSettings[] = {
 
 /* submenu definitions */
 
-#if !defined(TARGET_N64) && !defined(TARGET_PORT_CONSOLE)
 static struct SubMenu menuControls = DEF_SUBMENU( optMainStr[2], optsControls );
-#endif
 
 #ifndef TARGET_N64
 static struct SubMenu menuVideo      = DEF_SUBMENU( optMainStr[3], optsVideo );
@@ -262,9 +260,7 @@ static struct SubMenu menuDsSettings = DEF_SUBMENU( optMainStr[6], optsDsSetting
 /* main options menu definition */
 
 static struct Option optsMain[] = {
-#if !defined(TARGET_N64) && !defined(TARGET_PORT_CONSOLE)
     DEF_OPT_SUBMENU( optMainStr[2], &menuControls ),
-#endif
 
 #ifndef TARGET_N64
     DEF_OPT_SUBMENU( optMainStr[3], &menuVideo ),
