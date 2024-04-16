@@ -29,6 +29,8 @@
 
 #if defined(TARGET_N64) || defined(TARGET_PORT_CONSOLE)
 extern int configJmpSwp;
+#else
+#include "pc/configfile.h"
 #endif
 
 static s8 sBBHStairJiggleOffsets[] = { -8, 8, -4, 4 };

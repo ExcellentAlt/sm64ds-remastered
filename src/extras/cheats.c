@@ -23,6 +23,8 @@
 
 #if defined(TARGET_N64) || defined(TARGET_PORT_CONSOLE)
 int configJmpSwp = TRUE;
+#else
+#include "pc/configfile.h"
 #endif
 
 struct CheatList Cheats;

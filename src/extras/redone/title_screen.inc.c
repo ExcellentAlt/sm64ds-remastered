@@ -17,6 +17,8 @@ extern s32 gInGameLanguage;
 
 #if defined(TARGET_N64) || defined(TARGET_PORT_CONSOLE)
 extern int configJmpSwp;
+#else
+#include "pc/configfile.h"
 #endif
 
 #define MAX_PAGE_STRINGS 12

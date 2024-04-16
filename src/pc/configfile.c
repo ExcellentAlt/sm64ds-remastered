@@ -92,6 +92,7 @@ unsigned int configKeyStickLeft[MAX_BINDS]  = { 0x014B,     VK_INVALID, VK_INVAL
 unsigned int configKeyStickRight[MAX_BINDS] = { 0x014D,     VK_INVALID, VK_INVALID   };
 unsigned int configStickDeadzone = 16; // 16*DEADZONE_STEP=4960 (the original default deadzone)
 unsigned int configRumbleStrength = 50;
+bool configJmpSwp = false;
 
 #ifdef EXTERNAL_DATA
 bool configPrecacheRes = true;
