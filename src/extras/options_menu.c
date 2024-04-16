@@ -620,7 +620,7 @@ void optmenu_check_buttons(void) {
             #endif
             optmenu_opt_change(&currentMenu->opts[currentMenu->select], 0);
         }
-    } else if (gPlayer1Controller->buttonPressed & ((B_BUTTON & !configJmpSwp | (A_BUTTON & configJmpSwp))) {
+    } else if (gPlayer1Controller->buttonPressed & ((B_BUTTON & !configJmpSwp) | (A_BUTTON & configJmpSwp))) {
         if (allowInput) {
             if (currentMenu->prev) {
                 #ifndef nosound
