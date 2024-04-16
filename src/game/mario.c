@@ -1350,17 +1350,17 @@ void debug_print_speed_action_normal(struct MarioState *m) {
  * Update the button inputs for Mario.
  */
 void update_mario_button_inputs(struct MarioState *m) {
-    if (m->controller->buttonPressed & A_BUTTON) {
+    if (m->controller->buttonPressed & (A_BUTTON & !configJmpSwp) | (B_BUTTON & configJmpSwp)) {
         m->input |= INPUT_A_PRESSED;
     }
 
-    if (m->controller->buttonDown & A_BUTTON) {
+    if (m->controller->buttonDown & (A_BUTTON & !configJmpSwp) | (B_BUTTON & configJmpSwp)) {
         m->input |= INPUT_A_DOWN;
     }
 
     // Don't update for these buttons if squished.
     if (m->squishTimer == 0) {
-        if (m->controller->buttonPressed & B_BUTTON) {
+        if (m->controller->buttonPressed & ((B_BUTTON & !configJmpSwp) | (A_BUTTON & configJmpSwp))) {
             m->input |= INPUT_B_PRESSED;
         }
 

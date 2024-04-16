@@ -92,10 +92,10 @@ s16 intro_level_select(void) {
     // perform the ID updates per each button press.
     // runs into a loop so after a button is pressed
     // stageChanged goes back to FALSE
-    if (gPlayer1Controller->buttonPressed & A_BUTTON) {
+    if (gPlayer1Controller->buttonPressed & (A_BUTTON & !configJmpSwp) | (B_BUTTON & configJmpSwp)) {
         ++gCurrLevelNum, stageChanged = TRUE;
     }
-    if (gPlayer1Controller->buttonPressed & B_BUTTON) {
+    if (gPlayer1Controller->buttonPressed & (B_BUTTON & !configJmpSwp) | (A_BUTTON & configJmpSwp)) {
         --gCurrLevelNum, stageChanged = TRUE;
     }
     if (gPlayer1Controller->buttonPressed & X_BUTTON) {

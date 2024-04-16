@@ -2468,8 +2468,13 @@ void parse_p1_controller(void) {
     // button values (as bools)
     gdctrl->trgL   = (currInputs->button & L_TRIG) != 0;
     gdctrl->trgR   = (currInputs->button & R_TRIG) != 0;
-    gdctrl->btnA   = (currInputs->button & A_BUTTON) != 0;
-    gdctrl->btnB   = (currInputs->button & B_BUTTON) != 0;
+    if configBtnSwp {
+        gdctrl->btnA   = (currInputs->button & B_BUTTON) != 0;
+        gdctrl->btnB   = (currInputs->button & A_BUTTON) != 0;
+    } else {
+        gdctrl->btnA   = (currInputs->button & A_BUTTON) != 0;
+        gdctrl->btnB   = (currInputs->button & B_BUTTON) != 0;
+    }
     gdctrl->btnX   = (currInputs->button & X_BUTTON) != 0;
     gdctrl->btnY   = (currInputs->button & Y_BUTTON) != 0;
     gdctrl->cleft  = (currInputs->button & L_CBUTTONS) != 0;

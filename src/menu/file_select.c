@@ -1665,7 +1665,7 @@ void handle_cursor_button_input(void) {
         || sSelectedButtonID == MENU_BUTTON_SCORE_FILE_C
         || sSelectedButtonID == MENU_BUTTON_SCORE_FILE_D) {
         if (gPlayer3Controller->buttonPressed 
-            & (B_BUTTON | START_BUTTON 
+            & (((B_BUTTON & !configJmpSwp) | (A_BUTTON & configJmpSwp)) | START_BUTTON 
 #if QOL_FEATURE_Z_BUTTON_EXTRA_OPTION
             | ZL_TRIG | ZR_TRIG
 #endif
@@ -1673,7 +1673,7 @@ void handle_cursor_button_input(void) {
             sClickPos[0] = sCursorPos[0];
             sClickPos[1] = sCursorPos[1];
             sCursorClickingTimer = 1;
-        } else if (gPlayer3Controller->buttonPressed & A_BUTTON) {
+        } else if (gPlayer3Controller->buttonPressed & (A_BUTTON & !configJmpSwp) | (B_BUTTON & configJmpSwp)) {
             sScoreFileCoinScoreMode = 1 - sScoreFileCoinScoreMode;
             play_sound(SOUND_MENU_CLICK_FILE_SELECT, gGlobalSoundSource);
         }

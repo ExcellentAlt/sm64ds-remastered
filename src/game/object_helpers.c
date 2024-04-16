@@ -2695,7 +2695,7 @@ s32 player_performed_grab_escape_action(void) {
         result = TRUE;
     }
 
-    if (gPlayer1Controller->buttonPressed & A_BUTTON) {
+    if (gPlayer1Controller->buttonPressed & (A_BUTTON & !configJmpSwp) | (B_BUTTON & configJmpSwp)) {
         result = TRUE;
     }
 

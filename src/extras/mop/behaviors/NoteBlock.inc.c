@@ -3,7 +3,7 @@ void bhv_noteblock_loop(void) {
 	u32 CarmackMeme;
 	if (cur_obj_is_mario_on_platform()) {
 		//this is awful
-		if (gMarioStates[0].controller->buttonPressed & A_BUTTON) {
+		if (gMarioStates[0].controller->buttonPressed & ((A_BUTTON & !configJmpSwp) | (B_BUTTON & configJmpSwp))) {
 			Yspd = 200;
 		}
 		set_mario_action(gMarioState, ACT_DOUBLE_JUMP, 0);

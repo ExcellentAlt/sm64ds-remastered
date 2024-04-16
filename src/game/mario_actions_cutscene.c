@@ -577,7 +577,7 @@ s32 act_debug_free_move(struct MarioState *m) {
 #endif
 
     // integer immediates, generates convert instructions for some reason
-    speed = gPlayer1Controller->buttonDown & B_BUTTON ? 4 : 1;
+    speed = gPlayer1Controller->buttonDown & ((B_BUTTON & !configJmpSwp) | (A_BUTTON & configJmpSwp)) ? 4 : 1;
     if (gPlayer1Controller->buttonDown & (ZL_TRIG | ZR_TRIG)) {
         speed = 0.01f;
     }
@@ -592,7 +592,7 @@ s32 act_debug_free_move(struct MarioState *m) {
         pos[1] -= 16.0f * speed;
     }
 
-    if (gPlayer1Controller->buttonPressed == A_BUTTON) {
+    if (gPlayer1Controller->buttonPressed == (A_BUTTON & !configJmpSwp) | (B_BUTTON & configJmpSwp)) {
 #ifdef EXT_DEBUG_MENU
         vec3_zero(m->vel);
         m->forwardVel = 0.0f;

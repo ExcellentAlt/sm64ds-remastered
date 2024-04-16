@@ -365,7 +365,7 @@ void try_modify_debug_controls(void) {
     }
     if (!(gPlayer1Controller->buttonDown & (L_TRIG | R_TRIG)) && !sNoExtraDebug) {
         sp4 = 1;
-        if (gPlayer1Controller->buttonDown & B_BUTTON) {
+        if (gPlayer1Controller->buttonDown & ((B_BUTTON & !configJmpSwp) | (A_BUTTON & configJmpSwp))) {
             sp4 = 100;
         }
 
@@ -387,7 +387,7 @@ void try_modify_debug_controls(void) {
             // we allow the player while in this mode to modify the debug controls. This is
             // so the playtester can adjust enemy behavior and parameters on the fly, since
             // various behaviors try to update their behaviors from gDebugInfo[4] and [5].
-            if (gPlayer1Controller->buttonDown & A_BUTTON) {
+            if (gPlayer1Controller->buttonDown & ((A_BUTTON & !configJmpSwp) | (B_BUTTON & configJmpSwp))) {
                 gDebugInfo[sDebugPage][sDebugSysCursor] =
                     gDebugInfoOverwrite[sDebugPage][sDebugSysCursor];
             } else {

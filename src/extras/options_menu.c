@@ -609,14 +609,14 @@ void optmenu_check_buttons(void) {
                 optmenu_opt_change(&currentMenu->opts[currentMenu->select], -1);
             }
         }
-    } else if (gPlayer1Controller->buttonPressed & A_BUTTON) {
+    } else if (gPlayer1Controller->buttonPressed & ((A_BUTTON & !configJmpSwp) | (B_BUTTON & configJmpSwp))) {
         if (allowInput) {
             #ifndef nosound
             play_sound(SOUND_MENU_CHANGE_SELECT, gGlobalSoundSource);
             #endif
             optmenu_opt_change(&currentMenu->opts[currentMenu->select], 0);
         }
-    } else if (gPlayer1Controller->buttonPressed & B_BUTTON) {
+    } else if (gPlayer1Controller->buttonPressed & ((B_BUTTON & !configJmpSwp | (A_BUTTON & configJmpSwp))) {
         if (allowInput) {
             if (currentMenu->prev) {
                 #ifndef nosound

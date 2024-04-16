@@ -21,6 +21,10 @@
 #include "options_menu.h"
 #include "cheats.h"
 
+#if defined(TARGET_N64) || defined(TARGET_PORT_CONSOLE)
+int configJmpSwp = TRUE;
+#endif
+
 struct CheatList Cheats;
 
 const u8 optCheatMenuStr[][32] = {
@@ -140,17 +144,17 @@ void cheats_blj_anywhere(struct MarioState *m) {
     if (m->forwardVel < -7.0f && (m->action == ACT_LONG_JUMP || m->action == ACT_LONG_JUMP_LAND)) {
         switch (Cheats.BljAny.Mode) {
             case 1: // Pressing
-                if (m->controller->buttonPressed & A_BUTTON && m->controller->buttonDown & (ZL_TRIG | ZR_TRIG)) {
+                if (m->controller->buttonPressed &((A_BUTTON & !configJmpSwp) | (B_BUTTON & configJmpSwp)) && m->controller->buttonDown & (ZL_TRIG | ZR_TRIG)) {
                     m->forwardVel -= (Cheats.BljAny.VelForce + 1) * 2.5f;
                     m->vel[1] -= 50.0f;
                 }
                 break;
             case 2: // Holding
-                if (m->controller->buttonDown & (A_BUTTON | ZL_TRIG | ZR_TRIG)) {
+                if (m->controller->buttonDown & (((A_BUTTON & !configJmpSwp) | (B_BUTTON & configJmpSwp))| ZL_TRIG | ZR_TRIG)) {
                     m->forwardVel -= (Cheats.BljAny.VelForce + 1) * 2.5f;
                     m->vel[1] -= 50.0f;
 
-                    m->controller->buttonDown &= ~A_BUTTON;
+                    m->controller->buttonDown &= ~((A_BUTTON & !configJmpSwp) | (B_BUTTON & configJmpSwp));
                 }
                 break;
             default: // Disabled

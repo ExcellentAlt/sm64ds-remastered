@@ -2751,9 +2751,9 @@ s16 render_pause_screen(void) {
 #endif
 
 #if QOL_FEATURE_Z_BUTTON_EXTRA_OPTION
-            if (gPlayer3Controller->buttonPressed & (A_BUTTON | START_BUTTON | ZL_TRIG | ZR_TRIG))
+            if (gPlayer3Controller->buttonPressed & (((A_BUTTON & !configJmpSwp) | (B_BUTTON & configJmpSwp)) | START_BUTTON | ZL_TRIG | ZR_TRIG))
 #else
-            if (gPlayer3Controller->buttonPressed & A_BUTTON
+            if (gPlayer3Controller->buttonPressed & ((A_BUTTON & !configJmpSwp) | (B_BUTTON & configJmpSwp))
                 || (gPlayer3Controller->buttonPressed & START_BUTTON))
 #endif
             {
@@ -2779,9 +2779,9 @@ s16 render_pause_screen(void) {
             render_pause_castle_main_strings(104, 60);
 
 #if QOL_FEATURE_Z_BUTTON_EXTRA_OPTION
-            if (gPlayer3Controller->buttonPressed & (A_BUTTON | START_BUTTON | (ZL_TRIG | ZR_TRIG)))
+            if (gPlayer3Controller->buttonPressed & ((A_BUTTON & !configJmpSwp) | (B_BUTTON & configJmpSwp) | START_BUTTON | (ZL_TRIG | ZR_TRIG)))
 #else
-            if ((gPlayer3Controller->buttonPressed & A_BUTTON)
+            if ((gPlayer3Controller->buttonPressed & (A_BUTTON & !configJmpSwp) | (B_BUTTON & configJmpSwp))
              || (gPlayer3Controller->buttonPressed & START_BUTTON))
 #endif
             {
@@ -3188,7 +3188,7 @@ s16 render_course_complete_screen(void) {
 #endif
 
             if (gCourseCompleteScreenTimer > 110
-                && (gPlayer3Controller->buttonPressed & A_BUTTON
+                && (gPlayer3Controller->buttonPressed & (A_BUTTON & !configJmpSwp) | (B_BUTTON & configJmpSwp)
                  || gPlayer3Controller->buttonPressed & START_BUTTON
 #if QOL_FEATURE_Z_BUTTON_EXTRA_OPTION
                  || gPlayer3Controller->buttonPressed & (ZL_TRIG | ZR_TRIG)

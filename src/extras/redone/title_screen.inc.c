@@ -220,7 +220,7 @@ void debug_level_select_update(struct ZDebugLevelSelect *this) {
             this->toggleCourseLevelView ^= 1;
         }
 
-        if (gPlayer1Controller->buttonPressed & B_BUTTON) {
+        if (gPlayer1Controller->buttonPressed & ((B_BUTTON & !configJmpSwp | (A_BUTTON & configJmpSwp))) {
             gCurrActNum++;
 
             if (gCurrActNum > 6) {
@@ -380,14 +380,14 @@ s16 intro_level_select(void) {
     }
 
     // Resets the game and disables level select
-    if (gPlayer1Controller->buttonDown == (A_BUTTON | L_TRIG | R_TRIG)) {
+    if (gPlayer1Controller->buttonDown == (((A_BUTTON & !configJmpSwp) | (B_BUTTON & configJmpSwp)) | L_TRIG | R_TRIG)) {
         play_sound(SOUND_MENU_ENTER_HOLE, gGlobalSoundSource);
         gDebugLevelSelect = FALSE;
         return -1;
     }
 
     // Starts level selected
-    if (gPlayer1Controller->buttonPressed & (A_BUTTON | START_BUTTON)) {
+    if (gPlayer1Controller->buttonPressed & (((A_BUTTON & !configJmpSwp) | (B_BUTTON & configJmpSwp)) | START_BUTTON)) {
         play_sound(SOUND_MENU_STAR_SOUND, gGlobalSoundSource);
         return gCurrLevelNum;
     }
