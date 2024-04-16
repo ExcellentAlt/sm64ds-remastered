@@ -118,8 +118,8 @@ static const u8 optsDsSettingsStr[][32] = {
     { TEXT_OPT_DS_SRUN },
 };
 
-#if !defined(TARGET_N64) && !defined(TARGET_PORT_CONSOLE)
 static const u8 optBindStr[][32] = {
+#if !defined(TARGET_N64) && !defined(TARGET_PORT_CONSOLE)
     { TEXT_OPT_UNBOUND },
     { TEXT_OPT_PRESSKEY },
     { TEXT_BIND_A },
@@ -145,8 +145,9 @@ static const u8 optBindStr[][32] = {
     { TEXT_BIND_RIGHT },
     { TEXT_OPT_DEADZONE },
     { TEXT_OPT_RUMBLE },
-};
 #endif
+    { TEXT_OPT_SWAP },
+};
 
 #ifndef TARGET_N64
 static const u8 *filterChoices[] = {

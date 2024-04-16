@@ -142,8 +142,8 @@
 #define TEXT_OPT_CAM_SCH3  _("Classic")
 
 #define TEXT_OPT_FSCREEN   _("Fullscreen")
-#define TEXT_OPT_DS        _("DS FILTERING")
-#define TEXT_OPT_N64       _("N64 FILTERING")
+#define TEXT_OPT_DS        _("DS Filtering")
+#define TEXT_OPT_N64       _("N64 Filtering")
 #define TEXT_OPT_MVOLUME   _("Master Volume")
 #define TEXT_OPT_MUSVOLUME _("Music Volume")
 #define TEXT_OPT_SFXVOLUME _("Sfx Volume")
