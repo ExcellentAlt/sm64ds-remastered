@@ -98,19 +98,6 @@ extern const Gfx chuckya_seg8_dl_0800AB70[];
 extern const Gfx chuckya_seg8_dl_0800ABE8[];
 extern const struct Animation *const chuckya_seg8_anims_0800C070[];
 
-// exclamation_box
-extern const GeoLayout exclamation_box_geo[];
-extern const Gfx exclamation_box_seg8_dl_08018FA8[];
-extern const Gfx exclamation_box_seg8_dl_08019008[];
-extern const Gfx exclamation_box_seg8_dl_08019058[];
-extern const Gfx exclamation_box_seg8_dl_08019220[];
-extern const Gfx exclamation_box_seg8_dl_08019280[];
-extern const Gfx exclamation_box_seg8_dl_080192D0[];
-extern const Gfx exclamation_box_seg8_dl_08019318[];
-extern const Gfx exclamation_box_seg8_dl_08019378[];
-extern const Gfx exclamation_box_seg8_dl_080193D8[];
-extern const Gfx exclamation_box_seg8_dl_08019438[];
-
 // exclamation_box_outline
 extern const GeoLayout exclamation_box_outline_geo[];
 extern const Gfx exclamation_box_outline_seg8_dl_08024EB8[];
@@ -124,7 +111,6 @@ extern const Gfx exclamation_box_outline_seg8_dl_08025968[];
 extern const Gfx exclamation_box_outline_seg8_dl_080259F8[];
 extern const Gfx exclamation_box_outline_seg8_dl_08025EC0[];
 extern const Gfx exclamation_box_outline_seg8_dl_08025F08[];
-extern const Collision exclamation_box_outline_seg8_collision_08025F78[];
 
 // flyguy
 extern const GeoLayout flyguy_geo[];
@@ -179,16 +165,23 @@ extern const Gfx metal_box_seg8_dl_08024B18[];
 extern const Gfx metal_box_dl[];
 extern const Collision metal_box_seg8_collision_08024C28[];
 
-// purple_switch
-extern const GeoLayout purple_switch_geo[];
-extern const Gfx purple_switch_seg8_dl_0800C668[];
-extern const Gfx purple_switch_seg8_dl_0800C6E0[];
-extern const Gfx purple_switch_seg8_dl_0800C718[];
-extern const Collision purple_switch_seg8_collision_0800C7A8[];
-
 // test_platform
 extern const GeoLayout test_platform_geo[];
 extern const Gfx unknown_seg8_dl_08026260[];
 extern const Collision unknown_seg8_collision_080262F8[];
+
+#include "red_switch/geo_header.h"
+
+#include "red_switch/collision_header.h"
+
+#include "star_switch/geo_header.h"
+
+#include "star_switch/collision_header.h"
+
+#include "question_box/geo_header.h"
+
+#include "exclamation_box/geo_header.h"
+
+#include "exclamation_box/collision_header.h"
 
 #endif

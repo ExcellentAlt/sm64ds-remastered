@@ -30,8 +30,8 @@ UNUSED static const u64 binid_4 = 4;
 #include "chuckya/anims/table.inc.c"
 UNUSED static const u64 binid_5 = 5;
 
-#include "purple_switch/model.inc.c"
-#include "purple_switch/collision.inc.c"
+#include "red_switch/model.inc.c"
+#include "red_switch/collision.inc.c"
 UNUSED static const u64 binid_6 = 6;
 
 #include "checkerboard_platform/model.inc.c"
@@ -70,7 +70,6 @@ UNUSED static const u64 binid_14 = 14;
 UNUSED static const u64 binid_15 = 15;
 
 #include "exclamation_box_outline/model.inc.c"
-#include "exclamation_box_outline/collision.inc.c"
 UNUSED static const u64 binid_16 = 16;
 
 #include "test_platform/model.inc.c"
@@ -79,3 +78,8 @@ UNUSED static const u64 binid_17 = 17;
 
 #include "koopa_shell/model.inc.c"
 UNUSED static const u64 binid_18 = 18;
+
+#include "star_switch/model.inc.c"
+#include "star_switch/collision.inc.c"
+#include "question_box/model.inc.c"
+#include "exclamation_box/collision.inc.c"

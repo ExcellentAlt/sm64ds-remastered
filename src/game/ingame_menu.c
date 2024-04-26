@@ -2320,7 +2320,7 @@ void render_pause_my_score_coins(void) {
         int_to_str(gCurrCourseNum, strCourseNum);
         print_generic_string(CRS_NUM_X1, 157, strCourseNum);
 
-        actName = segmented_to_virtual(actNameTbl[COURSE_NUM_TO_INDEX(gCurrCourseNum) * 6 + gDialogCourseActNum - 1]);
+        actName = segmented_to_virtual(actNameTbl[COURSE_NUM_TO_INDEX(gCurrCourseNum) * NUM_ACTS_PER_COURSE + gDialogCourseActNum - 1]);
 
         if (starFlags & (1 << (gDialogCourseActNum - 1))) {
             print_generic_string(TXT_STAR_X, 140, textStar);
@@ -2510,9 +2510,9 @@ void render_pause_castle_course_stars(s16 x, s16 y, s16 fileIndex, s16 courseInd
 
     u16 nextStar = 0;
 
-    if (starFlags & (1 << 6)) {
+    if (starFlags & (1 << STAR_INDEX_100_COINS)) {
         starCount--;
-        print_generic_string(x + 89, y - 5, textStar);
+        print_generic_string(x + 97, y - 5, textStar);
     }
 
     while (hasStar != starCount) {
@@ -2527,7 +2527,7 @@ void render_pause_castle_course_stars(s16 x, s16 y, s16 fileIndex, s16 courseInd
         nextStar++;
     }
 
-    if (starCount == nextStar && starCount != 6) {
+    if (starCount == nextStar && starCount != NUM_ACTS_PER_COURSE) {
         str[nextStar * 2] = DIALOG_CHAR_STAR_OPEN;
         str[nextStar * 2 + 1] = DIALOG_CHAR_SPACE;
         nextStar++;
@@ -2535,7 +2535,7 @@ void render_pause_castle_course_stars(s16 x, s16 y, s16 fileIndex, s16 courseInd
 
     str[nextStar * 2] = DIALOG_CHAR_TERMINATOR;
 
-    print_generic_string(x + 14, y + 13, str);
+    print_generic_string(x + 7, y + 13, str);
 }
 
 void render_pause_castle_main_strings(s16 x, s16 y) {
@@ -2678,13 +2678,8 @@ s16 render_pause_screen(void) {
                 render_pause_course_options(99, 93, &gMenuLineNum, 15);
             }
 #endif
-
-#if QOL_FEATURE_Z_BUTTON_EXTRA_OPTION
-            if (gPlayer3Controller->buttonPressed & (A_BUTTON | START_BUTTON | ZL_TRIG | ZR_TRIG))
-#else
             if (gPlayer3Controller->buttonPressed & A_BUTTON
                 || (gPlayer3Controller->buttonPressed & START_BUTTON))
-#endif
             {
                 level_set_transition(0, NULL);
                 play_sound(SOUND_MENU_PAUSE_CLOSE, gGlobalSoundSource);
@@ -2707,13 +2702,7 @@ s16 render_pause_screen(void) {
             render_pause_castle_menu_box(160, 143);
             render_pause_castle_main_strings(104, 60);
 
-#if QOL_FEATURE_Z_BUTTON_EXTRA_OPTION
-            if (gPlayer3Controller->buttonPressed & (A_BUTTON | START_BUTTON | (ZL_TRIG | ZR_TRIG)))
-#else
-            if ((gPlayer3Controller->buttonPressed & A_BUTTON)
-             || (gPlayer3Controller->buttonPressed & START_BUTTON))
-#endif
-            {
+            if ((gPlayer3Controller->buttonPressed & A_BUTTON) || (gPlayer3Controller->buttonPressed & START_BUTTON)) {
                 level_set_transition(0, NULL);
                 play_sound(SOUND_MENU_PAUSE_CLOSE, gGlobalSoundSource);
                 gMenuMode = MENU_MODE_NONE;
@@ -2901,10 +2890,10 @@ void render_course_complete_lvl_info_and_hud_str(void) {
         print_hud_course_complete_coins(118, 103);
         play_star_fanfare_and_flash_hud(1, 1 << (gLastCompletedStarNum - 1));
 
-        if (gLastCompletedStarNum == 7) {
-            name = segmented_to_virtual(actNameTbl[COURSE_STAGES_MAX * 6 + 1]);
+        if (gLastCompletedStarNum == (STAR_INDEX_100_COINS + 1)) {
+            name = segmented_to_virtual(actNameTbl[COURSE_STAGES_MAX * NUM_ACTS_PER_COURSE]);
         } else {
-            name = segmented_to_virtual(actNameTbl[COURSE_NUM_TO_INDEX(gLastCompletedCourseNum) * 6 + gLastCompletedStarNum - 1]);
+            name = segmented_to_virtual(actNameTbl[COURSE_NUM_TO_INDEX(gLastCompletedCourseNum) * NUM_ACTS_PER_COURSE + gLastCompletedStarNum - 1]);
         }
 
         // Print course number
@@ -2950,7 +2939,7 @@ void render_course_complete_lvl_info_and_hud_str(void) {
 
         return;
     } else { // Castle secret stars
-        name = segmented_to_virtual(actNameTbl[COURSE_STAGES_MAX * 6]);
+        name = segmented_to_virtual(actNameTbl[COURSE_STAGES_MAX * NUM_ACTS_PER_COURSE]);
 
         print_hud_course_complete_coins(118, 103);
         play_star_fanfare_and_flash_hud(1, 1 << (gLastCompletedStarNum - 1));
@@ -3108,12 +3097,7 @@ s16 render_course_complete_screen(void) {
 #endif
 
             if (gCourseCompleteScreenTimer > 110
-                && (gPlayer3Controller->buttonPressed & A_BUTTON
-                 || gPlayer3Controller->buttonPressed & START_BUTTON
-#if QOL_FEATURE_Z_BUTTON_EXTRA_OPTION
-                 || gPlayer3Controller->buttonPressed & (ZL_TRIG | ZR_TRIG)
-#endif
-                )) {
+                && (gPlayer3Controller->buttonPressed & A_BUTTON || gPlayer3Controller->buttonPressed & START_BUTTON)) {
                 level_set_transition(0, NULL);
                 play_sound(SOUND_MENU_STAR_SOUND, gGlobalSoundSource);
                 gMenuState = MENU_STATE_DEFAULT;

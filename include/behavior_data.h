@@ -481,6 +481,7 @@ extern const BehaviorScript bhvNormalCap[];
 extern const BehaviorScript bhvVanishCap[];
 extern const BehaviorScript bhvStar[];
 extern const BehaviorScript bhvStarSpawnCoordinates[];
+extern const BehaviorScript bhvTimedStarSpawnCoordinates[];
 extern const BehaviorScript bhvHiddenRedCoinStar[];
 extern const BehaviorScript bhvRedCoin[];
 extern const BehaviorScript bhvBowserCourseRedCoinStar[];
@@ -612,13 +613,11 @@ extern const BehaviorScript bhvEndBirds1[];
 extern const BehaviorScript bhvEndBirds2[];
 extern const BehaviorScript bhvIntroScene[];
 extern const BehaviorScript bhvUnusedFakeStar[];
+extern const BehaviorScript bhvStarSwitch[];
+extern const BehaviorScript bhvStarSwitchSpawnCondition[];
 
 extern const BehaviorScript bhv2DPhysics[];
 extern const BehaviorScript bhvLegacyScrollTexture[];
-
-#ifdef PORT_MOP_OBJS
-#include "src/extras/mop/include_behaviors.h"
-#endif
 
 #ifdef RM2C_HAS_SCROLLING_TEXTURES
 extern const BehaviorScript editor_Scroll_Texture[];

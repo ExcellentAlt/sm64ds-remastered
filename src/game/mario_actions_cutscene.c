@@ -708,7 +708,7 @@ void general_star_dance_handler(struct MarioState *m, s32 isInWater) {
                     level_trigger_warp(m, WARP_OP_STAR_EXIT);
                 } else {
                     enable_time_stop();
-                    create_dialog_box_with_response(gLastCompletedStarNum == 7 ? DIALOG_013 : DIALOG_014);
+                    create_dialog_box_with_response(gLastCompletedStarNum == (STAR_INDEX_100_COINS + 1) ? DIALOG_013 : DIALOG_014);
                     m->actionState = 1;
                 }
                 break;
@@ -2021,7 +2021,7 @@ static s32 jumbo_star_cutscene_taking_off(struct MarioState *m) {
                 break;
 
             case 28:
-                play_sound(SOUND_MARIO_HOOHOO, m->marioObj->header.gfx.cameraToObject);
+                play_sound(SOUND_MARIO_MUH, m->marioObj->header.gfx.cameraToObject);
                 break;
 
             case 60:

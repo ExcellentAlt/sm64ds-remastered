@@ -1661,11 +1661,7 @@ void handle_cursor_button_input(void) {
         || sSelectedButtonID == MENU_BUTTON_SCORE_FILE_C
         || sSelectedButtonID == MENU_BUTTON_SCORE_FILE_D) {
         if (gPlayer3Controller->buttonPressed 
-            & (B_BUTTON | START_BUTTON 
-#if QOL_FEATURE_Z_BUTTON_EXTRA_OPTION
-            | ZL_TRIG | ZR_TRIG
-#endif
-            )) {
+            & (B_BUTTON | START_BUTTON )) {
             sClickPos[0] = sCursorPos[0];
             sClickPos[1] = sCursorPos[1];
             sCursorClickingTimer = 1;
@@ -1675,11 +1671,7 @@ void handle_cursor_button_input(void) {
         }
     } else { // If cursor is clicked
         if (gPlayer3Controller->buttonPressed
-            & (A_BUTTON | B_BUTTON | START_BUTTON 
-#if QOL_FEATURE_Z_BUTTON_EXTRA_OPTION
-            | ZL_TRIG | ZR_TRIG
-#endif
-            )) {
+            & (A_BUTTON | B_BUTTON | START_BUTTON )) {
             sClickPos[0] = sCursorPos[0];
             sClickPos[1] = sCursorPos[1];
             sCursorClickingTimer = 1;
@@ -2669,7 +2661,7 @@ void print_score_file_course_coin_score(s8 fileIndex, s16 courseIndex, s16 x, s1
         int_to_str(save_file_get_course_coin_score(fileIndex, courseIndex), coinScoreText);
         print_menu_generic_string(x + 41, y, coinScoreText);
         // If collected, print 100 coin star
-        if (stars & (1 << 6)) {
+        if (stars & (1 << STAR_INDEX_100_COINS)) {
             print_menu_generic_string(x + 70, y, textStar);
         }
     }
@@ -2695,7 +2687,7 @@ void print_score_file_star_score(s8 fileIndex, s16 courseIndex, s16 x, s16 y) {
     u8 stars = save_file_get_star_flags(fileIndex, courseIndex);
     s8 starCount = save_file_get_course_star_count(fileIndex, courseIndex);
     // Don't count 100 coin star
-    if (stars & (1 << 6)) {
+    if (stars & (1 << NUM_ACTS_PER_COURSE)) {
         starCount--;
     }
     // Add 1 star character for every star collected
